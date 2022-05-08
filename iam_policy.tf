@@ -18,7 +18,7 @@ resource "aws_iam_policy" "policy_logs" {
       ],
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:logs:us-east-1:016230046494:log-group:/aws/lambda/lambda_logs:*"
+        "arn:aws:logs:us-east-1:016230046494:log-group:/aws/lambda/lambda_function:*"
       ]
     }
   ],
