@@ -13,7 +13,7 @@ curl -X POST https://ci8esjkr97.execute-api.us-east-1.amazonaws.com/test/lambda_
 List contexts of the s3 bucket to see the uploaded file using:
 
 ```
-???
+aws s3 ls s3://api-gateway-data-bucket/2022/05/08/
 ````
 
 
