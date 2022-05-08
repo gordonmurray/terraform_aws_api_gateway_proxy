@@ -20,10 +20,17 @@ List contexts of the s3 bucket to see the uploaded file using:
 ## Running costs
 
 ```
+Project: gordonmurray/terraform_aws_api_gateway_proxy/.
+
  Name                                               Monthly Qty  Unit                        Monthly Cost
 
  aws_api_gateway_rest_api.default
  └─ Requests (first 333M)                   Monthly cost depends on usage: $3.50 per 1M requests
+
+ aws_cloudwatch_log_group.lambda
+ ├─ Data ingested                           Monthly cost depends on usage: $0.50 per GB
+ ├─ Archival Storage                        Monthly cost depends on usage: $0.03 per GB
+ └─ Insights queries data scanned           Monthly cost depends on usage: $0.005 per GB
 
  aws_lambda_function.default
  ├─ Requests                                Monthly cost depends on usage: $0.20 per 1M requests
@@ -39,18 +46,16 @@ List contexts of the s3 bucket to see the uploaded file using:
 
  OVERALL TOTAL                                                                                      $0.00
 ──────────────────────────────────
-14 cloud resources were detected:
-∙ 3 were estimated, all of which include usage-based costs, see https://infracost.io/usage-file
-∙ 10 were free:
-  ∙ 2 x aws_iam_policy
+17 cloud resources were detected:
+∙ 4 were estimated, all of which include usage-based costs, see https://infracost.io/usage-file
+∙ 13 were free:
+  ∙ 2 x aws_api_gateway_integration
+  ∙ 2 x aws_api_gateway_method
+  ∙ 2 x aws_api_gateway_method_response
+  ∙ 2 x aws_iam_role_policy_attachment
   ∙ 1 x aws_api_gateway_deployment
-  ∙ 1 x aws_api_gateway_integration
-  ∙ 1 x aws_api_gateway_method
-  ∙ 1 x aws_api_gateway_model
   ∙ 1 x aws_api_gateway_resource
-  ∙ 1 x aws_api_gateway_stage
+  ∙ 1 x aws_iam_policy
   ∙ 1 x aws_iam_role
   ∙ 1 x aws_s3_bucket_acl
-∙ 1 is not supported yet, see https://infracost.io/requested-resources:
-  ∙ 1 x aws_api_gateway_gateway_response
 ```
