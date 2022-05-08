@@ -8,7 +8,7 @@ resource "aws_lambda_function" "default" {
   package_type     = "Zip"
   timeout          = "3"
   source_code_hash = filebase64sha256("lambda_function.zip")
-  runtime          = "python3.8"
+  runtime          = "python3.9"
 
   ephemeral_storage {
     size = "512"
