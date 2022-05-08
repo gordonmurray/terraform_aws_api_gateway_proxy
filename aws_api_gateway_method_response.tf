@@ -3,6 +3,7 @@ resource "aws_api_gateway_method_response" "options" {
   resource_id = aws_api_gateway_resource.resource.id
   rest_api_id = aws_api_gateway_rest_api.default.id
   status_code = "200"
+  depends_on  = [aws_api_gateway_integration.options]
 
   response_models = {
     "application/json" = "Empty"
@@ -13,6 +14,8 @@ resource "aws_api_gateway_method_response" "options" {
     "method.response.header.Access-Control-Allow-Methods" = "false"
     "method.response.header.Access-Control-Allow-Origin"  = "false"
   }
+
+
 }
 
 resource "aws_api_gateway_method_response" "post" {
@@ -20,6 +23,7 @@ resource "aws_api_gateway_method_response" "post" {
   resource_id = aws_api_gateway_resource.resource.id
   rest_api_id = aws_api_gateway_rest_api.default.id
   status_code = "200"
+  depends_on  = [aws_api_gateway_integration.post]
 
   response_models = {
     "application/json" = "Empty"
@@ -28,5 +32,4 @@ resource "aws_api_gateway_method_response" "post" {
   response_parameters = {
     "method.response.header.Access-Control-Allow-Origin" = "false"
   }
-
 }
