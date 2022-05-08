@@ -2,6 +2,20 @@
 
 An AWS API Gateway that can be used to receive data via a POST request and store the data in to an s3 bucket
 
+Once applied, test the deployment URL using:
+
+```
+curl -X POST https://ci8esjkr97.execute-api.us-east-1.amazonaws.com/test/upload \
+   -H 'file-name:sample.json' \
+   -d '{"Id": 78912, "Quantity": 1, "Price": 19.00}'
+```
+
+List contexts of the s3 bucket to see the uploaded file using:
+
+```
+???
+````
+
 
 ## Running costs
 
