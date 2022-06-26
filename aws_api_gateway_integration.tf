@@ -22,5 +22,5 @@ resource "aws_api_gateway_integration" "post" {
   resource_id             = aws_api_gateway_resource.resource.id
   timeout_milliseconds    = "29000"
   type                    = "AWS_PROXY"
-  uri                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:016230046494:function:lambda_function/invocations"
+  uri                     = aws_lambda_function.default.invoke_arn
 }
