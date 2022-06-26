@@ -1,6 +1,6 @@
 terraform {
 
-  required_version = "1.1.8"
+  required_version = "1.2.3"
 
   required_providers {
 
@@ -15,7 +15,7 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region                   = "eu-west-1"
+  region                   = "us-east-1"
   shared_credentials_files = ["~/.aws/credentials"]
   profile                  = "gordonmurray"
 }
