@@ -24,3 +24,14 @@ resource "aws_lambda_function" "default" {
     mode = "PassThrough"
   }
 }
+
+resource "aws_lambda_permission" "lambda_permission" {
+  statement_id  = "AllowInvokeLambda"
+  action        = "lambda:InvokeFunction"
+  function_name = var.lambda_function_name
+  principal     = "apigateway.amazonaws.com"
+
+  # The /*/*/* part allows invocation from any stage, method and resource path
+  # within API Gateway REST API.
+  source_arn = "${aws_api_gateway_rest_api.default.execution_arn}/*/*"
+}
