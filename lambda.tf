@@ -1,9 +1,9 @@
 resource "aws_lambda_function" "default" {
   architectures    = ["x86_64"]
   filename         = "lambda_function.zip"
-  function_name    = "api_gateway_lambda_function"
+  function_name    = var.lambda_function_name
   role             = aws_iam_role.iam_role_for_lambda.arn
-  handler          = "api_gateway_lambda_function.lambda_handler"
+  handler          = "lambda_function.lambda_handler"
   memory_size      = "128"
   package_type     = "Zip"
   timeout          = "3"
@@ -18,5 +18,9 @@ resource "aws_lambda_function" "default" {
     variables = {
       BUCKET_NAME = aws_s3_bucket.data_bucket.id
     }
+  }
+
+  tracing_config {
+    mode = "PassThrough"
   }
 }
