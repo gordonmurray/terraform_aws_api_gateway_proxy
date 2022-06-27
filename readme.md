@@ -28,9 +28,9 @@ Project: gordonmurray/terraform_aws_api_gateway_proxy/.
  └─ Requests (first 333M)                   Monthly cost depends on usage: $3.50 per 1M requests
 
  aws_cloudwatch_log_group.lambda
- ├─ Data ingested                           Monthly cost depends on usage: $0.57 per GB
+ ├─ Data ingested                           Monthly cost depends on usage: $0.50 per GB
  ├─ Archival Storage                        Monthly cost depends on usage: $0.03 per GB
- └─ Insights queries data scanned           Monthly cost depends on usage: $0.0057 per GB
+ └─ Insights queries data scanned           Monthly cost depends on usage: $0.005 per GB
 
  aws_lambda_function.default
  ├─ Requests                                Monthly cost depends on usage: $0.20 per 1M requests
@@ -49,9 +49,9 @@ Project: gordonmurray/terraform_aws_api_gateway_proxy/.
 
  OVERALL TOTAL                                                                                      $0.00
 ──────────────────────────────────
-19 cloud resources were detected:
+22 cloud resources were detected:
 ∙ 5 were estimated, all of which include usage-based costs, see https://infracost.io/usage-file
-∙ 14 were free:
+∙ 15 were free:
   ∙ 2 x aws_api_gateway_integration
   ∙ 2 x aws_api_gateway_method
   ∙ 2 x aws_api_gateway_method_response
@@ -60,6 +60,9 @@ Project: gordonmurray/terraform_aws_api_gateway_proxy/.
   ∙ 1 x aws_api_gateway_resource
   ∙ 1 x aws_iam_policy
   ∙ 1 x aws_iam_role
+  ∙ 1 x aws_lambda_permission
   ∙ 1 x aws_s3_bucket_acl
   ∙ 1 x aws_s3_bucket_notification
+∙ 2 are not supported yet, see https://infracost.io/requested-resources:
+  ∙ 2 x aws_api_gateway_integration_response
 ```
