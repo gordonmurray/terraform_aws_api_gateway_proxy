@@ -16,6 +16,17 @@ List contexts of the s3 bucket to see the uploaded file using:
 aws s3 ls s3://api-gateway-data-bucket/2022/05/08/
 ````
 
+## Testing with Ansible
+
+Use the following to test the API is receiving data in to s3
+
+```
+ansible-playbook main.yml
+```
+
+Quick video showing the Ansible test
+
+[![asciicast](https://asciinema.org/a/W2VtvHxUeXhc4un18k9Bnf9KF.svg)](https://asciinema.org/a/W2VtvHxUeXhc4un18k9Bnf9KF)
 
 ## Running costs
 
