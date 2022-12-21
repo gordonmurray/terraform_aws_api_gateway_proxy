@@ -1,0 +1,7 @@
+---
+- name: Test the API gateway
+  hosts: localhost
+  gather_facts: false
+  
+  roles:
+    - test

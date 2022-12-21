@@ -1,0 +1,31 @@
+- name: Post some sample content to the AWS API Gateway URL
+  ansible.builtin.uri:
+    url: "{{ api_url }}"
+    return_content: yes
+    method: POST
+    body: '{"Id": 12345, "Quantity": 1, "Price": 99.00}'
+    status_code: 200
+  register: api_response
+
+- ansible.builtin.debug:
+    msg: "Response: {{ api_response.content }}"
+
+- name: Sleep for a few second
+  ansible.builtin.wait_for:
+    timeout: 2
+  delegate_to: localhost
+
+- name: Check to see if the lambda placed the file on s3
+  aws_s3:
+    bucket: my-test-bucket-gordon
+    mode: list
+    prefix: "{{ api_response.content }}"
+  register: s3_response
+
+- ansible.builtin.debug:
+    msg: "{{ s3_response.s3_keys }}"
+
+- name: Check to see if the s3 object is what we expect
+  ansible.builtin.assert:
+    that:
+      - "{{ s3_response.s3_keys }} == ['{{ api_response.content }}']"
