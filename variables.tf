@@ -1,5 +1,5 @@
 variable "aws_account_id" {
-  type    = string
+  type = string
 }
 
 variable "aws_region" {
