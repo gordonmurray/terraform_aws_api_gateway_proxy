@@ -7,7 +7,7 @@ resource "aws_iam_role" "iam_role_for_lambda" {
   ]
 
   tags = {
-    Name      = "iam_role_for_lambda"
+    Name = "iam_role_for_lambda"
   }
 
   assume_role_policy = <<EOF

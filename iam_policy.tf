@@ -4,7 +4,7 @@ resource "aws_iam_policy" "policy_logs" {
   path        = "/service-role/"
 
   tags = {
-    Name      = "allow-log-permissions-policy"
+    Name = "allow-log-permissions-policy"
   }
 
   policy = <<POLICY
