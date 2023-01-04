@@ -2,6 +2,12 @@
 
 An AWS API Gateway that can be used to receive data via a POST request and store the data in to an s3 bucket in json format.
 
+```
+terraform apply
+
+Plan: 21 to add, 0 to change, 0 to destroy.
+```
+
 Once applied, test the deployment URL with Ansible. It will Post to the API and check that a file is created on s3.
 
 ```
