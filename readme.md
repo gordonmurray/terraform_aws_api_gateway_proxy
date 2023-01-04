@@ -10,6 +10,12 @@ Plan: 21 to add, 0 to change, 0 to destroy.
 
 Once applied, test the deployment URL with Ansible. It will Post to the API and check that a file is created on s3.
 
+Terraform will create a variables file for Ansible to use, so it will know the API endpoint and s3 bucket to check
+
+The file will be located at `/ansible/roles/test/vars/main.yml`
+
+
+
 ```
 cd ansible
 ansible-playbook main.yml
