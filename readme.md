@@ -23,34 +23,36 @@ ansible-playbook main.yml
 
 [![asciicast](https://asciinema.org/a/547248.svg)](https://asciinema.org/a/547248)
 
-## Estimated cost
+## Estimated cost per month: 
+
+Assuming 1m API requests and 5 GB of logs stored on Cloudwatch per month
 
 ```
 Project: gordonmurray/terraform_aws_api_gateway_proxy
 
- Name                                               Monthly Qty  Unit                        Monthly Cost 
-                                                                                                          
- aws_api_gateway_rest_api.default                                                                         
- └─ Requests (first 333M)                   Monthly cost depends on usage: $3.50 per 1M requests          
-                                                                                                          
- aws_cloudwatch_log_group.lambda                                                                          
- ├─ Data ingested                           Monthly cost depends on usage: $0.50 per GB                   
- ├─ Archival Storage                        Monthly cost depends on usage: $0.03 per GB                   
- └─ Insights queries data scanned           Monthly cost depends on usage: $0.005 per GB                  
-                                                                                                          
- aws_lambda_function.default                                                                              
- ├─ Requests                                Monthly cost depends on usage: $0.20 per 1M requests          
- └─ Duration (first 6B)                     Monthly cost depends on usage: $0.0000166667 per GB-seconds   
-                                                                                                          
- aws_s3_bucket.data_bucket                                                                                
- └─ Standard                                                                                              
-    ├─ Storage                              Monthly cost depends on usage: $0.023 per GB                  
-    ├─ PUT, COPY, POST, LIST requests       Monthly cost depends on usage: $0.005 per 1k requests         
-    ├─ GET, SELECT, and all other requests  Monthly cost depends on usage: $0.0004 per 1k requests        
-    ├─ Select data scanned                  Monthly cost depends on usage: $0.002 per GB                  
-    └─ Select data returned                 Monthly cost depends on usage: $0.0007 per GB                 
-                                                                                                          
- OVERALL TOTAL                                                                                      $0.00 
+ Name                                             Monthly Qty  Unit                    Monthly Cost 
+                                                                                                    
+ aws_api_gateway_rest_api.default                                                                   
+ └─ Requests (first 333M)                                   1  1M requests                    $3.50 
+                                                                                                    
+ aws_cloudwatch_log_group.lambda                                                                    
+ ├─ Data ingested                                           5  GB                             $2.50 
+ ├─ Archival Storage                                        5  GB                             $0.15 
+ └─ Insights queries data scanned                           5  GB                             $0.03 
+                                                                                                    
+ aws_lambda_function.default                                                                        
+ ├─ Requests                                Monthly cost depends on usage: $0.20 per 1M requests    
+ └─ Duration (first 6B)                                   125  GB-seconds                     $0.00 
+                                                                                                    
+ aws_s3_bucket.data_bucket                                                                          
+ └─ Standard                                                                                        
+    ├─ Storage                              Monthly cost depends on usage: $0.023 per GB            
+    ├─ PUT, COPY, POST, LIST requests       Monthly cost depends on usage: $0.005 per 1k requests   
+    ├─ GET, SELECT, and all other requests  Monthly cost depends on usage: $0.0004 per 1k requests  
+    ├─ Select data scanned                  Monthly cost depends on usage: $0.002 per GB            
+    └─ Select data returned                 Monthly cost depends on usage: $0.0007 per GB           
+                                                                                                    
+ OVERALL TOTAL                                                                                $6.18 
 ──────────────────────────────────
 20 cloud resources were detected:
 ∙ 4 were estimated, all of which include usage-based costs, see https://infracost.io/usage-file
