@@ -1,23 +1,17 @@
-# AWS API Gatway
+# AWS API Gateway
 
-An AWS API Gateway that can be used to receive data via a POST request and store the data in to an s3 bucket
+An AWS API Gateway that can be used to receive data via a POST request and store the data in to an s3 bucket in json format.
 
-Once applied, test the deployment URL using:
-
-```
-curl -X POST https://vzhyihh3ob.execute-api.eu-west-1.amazonaws.com/test/lambda_function \
-   -H 'file-name:sample.json' \
-   -d '{"Id": 78912, "Quantity": 1, "Price": 19.00}'
-```
-
-List contexts of the s3 bucket to see the uploaded file using:
+Once applied, test the deployment URL with Ansible. It will Post to the API and check that a file is created on s3.
 
 ```
-aws s3 ls s3://api-gateway-data-bucket/2022/05/08/
-````
+cd ansible
+ansible-playbook main.yml
+```
 
+[![asciicast](https://asciinema.org/a/547248.svg)](https://asciinema.org/a/547248)
 
-## Running costs
+## Estimated cost
 
 ```
 Project: gordonmurray/terraform_aws_api_gateway_proxy
