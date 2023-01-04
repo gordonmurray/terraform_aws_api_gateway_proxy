@@ -20,17 +20,17 @@ response  = {
 
 def lambda_handler(event, context):
 
-    file_name = datetime.datetime.now().strftime('%Y/%m/%d/%H_%M_%S.json')
+    file_name = datetime.datetime.now().strftime('%Y/%m/%d/%H_%M_%S.json') 
     file_content = base64.b64decode(event['body'])
-
+    
     BUCKET_NAME = os.environ['BUCKET_NAME']
 
     try:
-        s3_response = s3_client.put_object(Bucket=BUCKET_NAME, Key=file_name, Body=file_content)
+        s3_response = s3_client.put_object(Bucket=BUCKET_NAME, Key=file_name, Body=file_content)   
         logger.info('S3 Response: {}'.format(s3_response))
-        response['body'] = 'Received'
+        response['body'] = file_name
 
         return response
 
     except Exception as e:
-        raise IOError(e)
+        raise IOError(e)    
