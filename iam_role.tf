@@ -2,9 +2,13 @@ resource "aws_iam_role" "iam_role_for_lambda" {
   name = "iam_role_for_lambda"
   path = "/service-role/"
   managed_policy_arns = [
-    aws_iam_policy.policy_logs.arn
-
+    aws_iam_policy.policy_logs.arn,
+    "arn:aws:iam::aws:policy/AmazonS3FullAccess"
   ]
+
+  tags = {
+    Name      = "iam_role_for_lambda"
+  }
 
   assume_role_policy = <<EOF
 {
