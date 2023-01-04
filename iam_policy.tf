@@ -3,13 +3,17 @@ resource "aws_iam_policy" "policy_logs" {
   description = "Lambda"
   path        = "/service-role/"
 
+  tags = {
+    Name = "allow-log-permissions-policy"
+  }
+
   policy = <<POLICY
 {
   "Statement": [
     {
       "Action": "logs:CreateLogGroup",
       "Effect": "Allow",
-      "Resource": "arn:aws:logs:us-east-1:016230046494:*"
+      "Resource": "arn:aws:logs:${var.aws_region}:${var.aws_account_id}:*"
     },
     {
       "Action": [
@@ -18,7 +22,7 @@ resource "aws_iam_policy" "policy_logs" {
       ],
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:logs:us-east-1:016230046494:log-group:/aws/lambda/lambda_function:*"
+        "arn:aws:logs:${var.aws_region}:${var.aws_account_id}:log-group:/aws/lambda/${var.lambda_function_name}:*"
       ]
     }
   ],
