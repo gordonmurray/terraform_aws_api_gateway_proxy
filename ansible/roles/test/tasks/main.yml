@@ -17,7 +17,7 @@
 
 - name: Check to see if the lambda placed the file on s3
   aws_s3:
-    bucket: my-test-bucket-gordon
+    bucket: "{{ s3_bucket }}"
     mode: list
     prefix: "{{ api_response.content }}"
   register: s3_response
