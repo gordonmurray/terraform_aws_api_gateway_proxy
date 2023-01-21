@@ -70,3 +70,9 @@ Project: gordonmurray/terraform_aws_api_gateway_proxy
 ∙ 2 are not supported yet, see https://infracost.io/requested-resources:
   ∙ 2 x aws_api_gateway_integration_response
 ```
+
+## API gateway check
+
+This project includes a [Checkly](https://www.checklyhq.com/) provider and API test so that the resulting API gateway is monitored.
+
+![alt text](https://github.com/gordonmurray/terraform_aws_api_gateway_proxy/blob/main/images/checkly.png?raw=true)
