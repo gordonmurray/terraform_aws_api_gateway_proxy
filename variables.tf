@@ -11,3 +11,13 @@ variable "lambda_function_name" {
   type    = string
   default = "api_gateway_lambda_function"
 }
+
+variable "checkly_api_key" {
+  type = string
+
+}
+
+variable "checkly_account_id" {
+  type = string
+
+}
